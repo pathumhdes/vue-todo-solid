@@ -2,7 +2,9 @@
   <div>
     <Header listName="My To-Do List" />
     <main>
-      <ToDos :todos="todos" />
+      <ToDos>
+        <TodoCard v-for="todo in todos" :key="todo.id" :todo="todo" />
+      </ToDos>
     </main>
   </div>
 </template>
@@ -10,13 +12,14 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import { ITodo } from '@/types';
-import { Api } from '@/api'
-import Header from '@/components/Header.vue'
-import ToDos from '@/components/ToDos.vue'
+import { Api } from '@/api';
+import Header from '@/components/Header.vue';
+import ToDos from '@/components/ToDos.vue';
+import TodoCard from '@/components/TodoCard.vue';
 
 @Options({
   components: {
-    Header, ToDos
+    Header, ToDos, TodoCard
   },
   props: {
     
