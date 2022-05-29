@@ -2,7 +2,7 @@
   <div>
     <Header listName="My To-Do List" />
     <main>
-      <ToDoCards :todos="todos" />
+      <ToDos :todos="todos" />
     </main>
   </div>
 </template>
@@ -12,11 +12,11 @@ import { Options, Vue } from 'vue-class-component';
 import { ITodo } from '@/types';
 import { Api } from '@/api'
 import Header from '@/components/Header.vue'
-import ToDoCards from '@/components/ToDoCards.vue'
+import ToDos from '@/components/ToDos.vue'
 
 @Options({
   components: {
-    Header, ToDoCards
+    Header, ToDos
   },
   props: {
     
