@@ -3,7 +3,7 @@
     <Header listName="My To-Do List" />
     <main>
       <ToDos>
-        <TodoCard v-for="todo in todos" :key="todo.id" :todo="todo" />
+        <TodoRow v-for="todo in todos" :key="todo.id" :todo="todo" />
       </ToDos>
     </main>
   </div>
@@ -15,11 +15,12 @@ import { ITodo } from '@/types';
 import Header from '@/components/Header.vue';
 import ToDos from '@/components/ToDos.vue';
 import TodoCard from '@/components/TodoCard.vue';
+import TodoRow from '@/components/TodoRow.vue';
 import { Api } from '@/api/api';
 
 @Options({
   components: {
-    Header, ToDos, TodoCard
+    Header, ToDos, TodoCard, TodoRow
   },
   props: {
     
