@@ -4,3 +4,7 @@ export interface ITodo {
     title: string
     completed: boolean
   }
+
+export interface IApi {
+  fetch(url: string): Promise<any>
+}

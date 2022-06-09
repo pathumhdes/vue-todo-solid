@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import { ITodo } from '@/types';
+import { IApi, ITodo } from '@/types';
 import Header from '@/components/Header.vue';
 import ToDos from '@/components/ToDos.vue';
 import TodoCard from '@/components/TodoCard.vue';
@@ -23,15 +23,15 @@ import { Api } from '@/api/api';
     Header, ToDos, TodoCard, TodoRow
   },
   props: {
-    
+
   }
 })
-export default class Home extends Vue {
+export default class Home extends Vue implements IApi {
   todos: ITodo[] = []
   async mounted() {
-    this.todos = await this.fetchTodos();
+    this.todos = await this.fetch();
   }
-  async fetchTodos(): Promise<ITodo[]> {
+  async fetch(): Promise<ITodo[]> {
     const api = new Api();
     return await api.fetch('todos');
   }
